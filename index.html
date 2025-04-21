@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iTabs Demo</title>
+    <title>The iTabs Innovation Story</title>
     <style>
         body {
-            font-family: -apple-system, system-ui, sans-serif;
+            font-family: Georgia, serif;
             line-height: 1.8;
             max-width: 800px;
             margin: 0 auto;
@@ -19,9 +19,11 @@
             font-size: 2.5em;
             margin-bottom: 20px;
             color: #1a1a1a;
+            text-align: center;
         }
         
         .meta {
+            text-align: center;
             color: #666;
             margin-bottom: 40px;
             font-style: italic;
@@ -41,225 +43,265 @@
             font-size: 1.8em;
         }
         
-        /* Page tabs - different from iTabs popups */
-        .tab-buttons {
-            display: flex;
-            background: #f1f5f9;
-            border-bottom: 1px solid #e2e8f0;
-            margin: 20px 0;
-        }
-        
-        .tab-button {
+        .highlight {
+            background: #fffde7;
             padding: 10px 15px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-weight: 600;
-            color: #64748b;
+            border-left: 4px solid #ffd54f;
+            margin: 30px 0;
         }
         
-        .tab-button.active {
-            color: #3b82f6;
-            border-bottom: 3px solid #3b82f6;
-            background: white;
-        }
-        
-        .tab-content {
-            margin-bottom: 30px;
-        }
-        
-        .tab-panel {
-            display: none;
+        .code-insertion {
+            background: #f0f4f8;
             padding: 15px;
-        }
-        
-        .tab-panel.active {
-            display: block;
-        }
-        
-        /* iTabs styles */
-        .itab-container {
-            font-family: -apple-system, system-ui, sans-serif;
-            max-width: 100%;
+            border: 1px dashed #a0aec0;
             margin: 20px 0;
-            border: 2px solid #6366f1;
-            border-radius: 8px;
-            overflow: hidden;
-            display: none;
-            position: absolute;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            width: 400px;
-            z-index: 1000;
+            font-family: monospace;
+            color: #4a5568;
         }
         
-        .word-with-itab {
-            position: relative;
-            display: inline;
-            color: inherit;
-        }
-        
-        .itab-icon {
-            width: 14px;
-            height: 14px;
-            background-color: #4338ca;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 4px;
-            color: white;
-            font-size: 10px;
-            vertical-align: super;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .itabs-link-button {
-            display: inline-block;
-            margin: 0 15px 15px;
-            padding: 8px 16px;
-            background: #6366f1;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        
-        @media (max-width: 500px) {
-            .itab-container {
-                width: 90%;
-                left: 5% !important;
-                right: 5% !important;
-                max-width: none;
-            }
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
         }
     </style>
+<style>
+.itab-container {
+  font-family: -apple-system, system-ui, sans-serif;
+  max-width: 100%;
+  margin: 20px 0;
+  border: 2px solid #6366f1;
+  border-radius: 8px;
+  overflow: hidden;
+  display: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 400px;
+  z-index: 1000;
+}
+.tab-buttons {
+  display: flex;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+.tab-button {
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #64748b;
+}
+.tab-button.active {
+  color: #6366f1;
+  border-bottom: 3px solid #6366f1;
+  background: white;
+}
+.tab-panel {
+  display: none;
+  padding: 15px;
+}
+.tab-panel.active {
+  display: block;
+}
+.tab-panel img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+.word-with-itab {
+  position: relative;
+  display: inline;
+  color: inherit;
+}
+.itabs-link-button {
+  display: inline-block;
+  margin: 0 15px 15px;
+  padding: 8px 16px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.itab-icon {
+  width: 14px;
+  height: 14px;
+  background-color: #4338ca;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  color: white;
+  font-size: 10px;
+  vertical-align: super;
+  font-weight: bold;
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  .itab-container {
+    width: 90%;
+    left: 5% !important;
+    right: 5% !important;
+    max-width: none;
+  }
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const tabContainer = button.closest('.itab-container');
+      tabContainer.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      tabContainer.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      button.classList.add('active');
+      tabContainer.querySelector('#' + button.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.itab-icon').forEach(icon => {
+    icon.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const parentSpan = this.closest('.word-with-itab');
+      const itabId = parentSpan.getAttribute('data-itab-id');
+      const itabElement = document.getElementById(itabId);
+      if (itabElement) {
+        document.querySelectorAll('.itab-container').forEach(container => {
+          container.style.display = 'none';
+        });
+        const iconRect = this.getBoundingClientRect();
+        itabElement.style.display = 'block';
+        itabElement.style.top = (iconRect.bottom + window.scrollY + 5) + 'px';
+        itabElement.style.left = Math.max(0, iconRect.left + window.scrollX - 180) + 'px';
+      }
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.word-with-itab') && !e.target.closest('.itab-container')) {
+      document.querySelectorAll('.itab-container').forEach(container => {
+        container.style.display = 'none';
+      });
+    }
+  });
+});
+</script>
 </head>
 <body>
     <h1 class="title">How iTabs Changed Content Forever</h1>
     <div class="meta">by David Chen | April 21, 2025</div>
     
     <div class="article-content">
-        <p>In the spring of 2024, I was struggling with a problem that every affiliate marketer knows too well: visitors clicking away to research products and never returning.</p>
+        <p>In the spring of 2024, I was struggling with a problem that every affiliate marketer knows too well: visitors clicking away to research products and never returning. Each click meant lost commissions, sometimes thousands of dollars per month.</p>
         
         <h2>The Lightbulb Moment</h2>
-        <p>The solution came to me during a conversation with my business partner. "What if we could keep visitors on our page while still providing them all the information they need?" That's when the concept of <span class="word-with-itab" data-itab-id="itab-popups">interactive popups<span class="itab-icon">i</span></span> was born.</p>
-        
-        <!-- iTabs Container -->
-        <div id="itab-popups" class="itab-container">
-            <div class="tab-buttons">
-                <button class="tab-button active" data-tab="tab1">What are they?</button>
-                <button class="tab-button" data-tab="tab2">Benefits</button>
-            </div>
-            
-            <div class="tab-content">
-                <div id="tab1" class="tab-panel active">
-                    <p>Interactive popups display contextual information without leaving the page:<br>
-                    • Keep visitors engaged<br>
-                    • Provide detailed information instantly<br>
-                    • Prevent navigation away from your content</p>
-                    <img src="https://via.placeholder.com/600x300/3b82f6/ffffff?text=Interactive+Popups" alt="Interactive Popups">
-                </div>
+        <p>The solution came to me during a conversation with my business partner. "What if we could keep visitors on our page while still providing them all the information they need?" That's when the concept of <div id="itab-popups" class="itab-container">
+  <div class="tab-buttons">
+    <button class="tab-button active" data-tab="tab1">What are they?</button>
+    <button class="tab-button" data-tab="tab2">Benefits</button>
+  </div>
+  
+  <div class="tab-content">
+    <div id="tab1" class="tab-panel active">
+      <p>Interactive popups display contextual information without leaving the page:<br>
+      • Keep visitors engaged<br>
+      • Provide detailed information instantly<br>
+      • Prevent navigation away from your content</p>
+      <img src="https://via.placeholder.com/600x300/3b82f6/ffffff?text=Interactive+Popups" alt="Interactive Popups">
+    </div>
 
-                <div id="tab2" class="tab-panel">
-                    <p>Key benefits:<br>
-                    • 40% higher conversion rates<br>
-                    • Reduced bounce rates<br>
-                    • Improved user experience<br>
-                    • Better information retention</p>
-                    <img src="https://via.placeholder.com/600x300/10b981/ffffff?text=Proven+Benefits" alt="Benefits">
-                </div>
-            </div>
-            <a href="#" class="itabs-link-button">Learn More</a>
-        </div>
+    <div id="tab2" class="tab-panel">
+      <p>Key benefits:<br>
+      • 40% higher conversion rates<br>
+      • Reduced bounce rates<br>
+      • Improved user experience<br>
+      • Better information retention</p>
+      <img src="https://via.placeholder.com/600x300/10b981/ffffff?text=Proven+Benefits" alt="Benefits">
+    </div>
+  </div>
+  <a href="#" class="itabs-link-button">Learn More</a>
+</div>
+<span class="word-with-itab" data-itab-id="itab-popups">interactive popups<span class="itab-icon">i</span></span> was born.</p>
         
-        <!-- Regular page tabs (not popup) -->
-        <div class="tab-buttons">
-            <button class="tab-button active" data-tab="tab1">What are they?</button>
-            <button class="tab-button" data-tab="tab2">Benefits</button>
-        </div>
+        <p>We realized that the universal information icon (i) was already familiar to every internet user. Why not enhance it to create richer, more interactive experiences?</p>
         
-        <div class="tab-content">
-            <div id="tab1" class="tab-panel active">
-                <p>Interactive popups display contextual information without leaving the page:</p>
-                <ul>
-                    <li>Keep visitors engaged</li>
-                    <li>Provide detailed information instantly</li>
-                    <li>Prevent navigation away from your content</li>
-                </ul>
-                <img src="https://via.placeholder.com/600x300/3b82f6/ffffff?text=Interactive+Popups" alt="Interactive Popups">
-            </div>
+        <h2>From Concept to Reality</h2>
+        <p>We started with a simple prototype during a 3-day Easter sprint. The goal was to create something that was both powerful for users yet incredibly simple to implement for website owners. The result was <div id="itab-overview" class="itab-container">
+  <div class="tab-buttons">
+    <button class="tab-button active" data-tab="tab3">What is iTabs?</button>
+    <button class="tab-button" data-tab="tab4">How it Works</button>
+  </div>
+  
+  <div class="tab-content">
+    <div id="tab3" class="tab-panel active">
+      <p>iTabs transforms the universal "i" icon into interactive information displays:<br>
+      • Simple to implement<br>
+      • Works with any content<br>
+      • Mobile-friendly design<br>
+      • Customizable appearance</p>
+      <img src="https://via.placeholder.com/600x300/6366f1/ffffff?text=iTabs+System" alt="iTabs System">
+    </div>
 
-            <div id="tab2" class="tab-panel">
-                <p>Key benefits:</p>
-                <ul>
-                    <li>40% higher conversion rates</li>
-                    <li>Reduced bounce rates</li>
-                    <li>Improved user experience</li>
-                    <li>Better information retention</li>
-                </ul>
-                <img src="https://via.placeholder.com/600x300/10b981/ffffff?text=Proven+Benefits" alt="Benefits">
-            </div>
+    <div id="tab4" class="tab-panel">
+      <p>Implementation steps:<br>
+      1. Create your iTabs content<br>
+      2. Copy the generated code<br>
+      3. Paste into your website<br>
+      4. Start engaging visitors!</p>
+      <img src="https://via.placeholder.com/600x300/f59e0b/ffffff?text=Easy+Setup" alt="Easy Setup">
+    </div>
+  </div>
+  <a href="https://itab-creator-studio.lovable.app/creator" class="itabs-link-button">Try iTabs Now</a>
+</div>
+<span class="word-with-itab" data-itab-id="itab-overview">iTabs<span class="itab-icon">i</span></span> - a revolutionary way to add contextual information to any content.</p>
+        
+        <div class="highlight">
+            <strong>The Power of Simplicity:</strong> iTabs works by adding a small "i" icon next to any word or phrase. When clicked, it reveals tabbed content that can include text, images, videos, or even affiliate links.
         </div>
         
-        <a href="#" class="itabs-link-button">Learn More</a>
+        <h2>The Impact Today</h2>
+        <p>Since launching, iTabs has helped thousands of content creators and affiliate marketers increase their conversion rates by up to 40%. The reason for this success is simple: iTabs solves a fundamental problem in digital content - the need to provide additional information without losing your audience's attention.</p>
+        
+        <p>But perhaps the most exciting part is how iTabs has evolved beyond our initial vision. Today, it's being used in ways we never imagined: educational websites, product documentation, e-commerce sites, and even news platforms. The applications are endless because <div id="itab-enhance" class="itab-container">
+  <div class="tab-buttons">
+    <button class="tab-button active" data-tab="tab5">Use Cases</button>
+    <button class="tab-button" data-tab="tab6">Future</button>
+  </div>
+  
+  <div class="tab-content">
+    <div id="tab5" class="tab-panel active">
+      <p>iTabs enhances information delivery across:<br>
+      • E-commerce product descriptions<br>
+      • Educational content<br>
+      • Technical documentation<br>
+      • Affiliate marketing</p>
+      <img src="https://via.placeholder.com/600x300/ec4899/ffffff?text=Multiple+Uses" alt="Use Cases">
+    </div>
+
+    <div id="tab6" class="tab-panel">
+      <p>Coming soon:<br>
+      • WordPress plugin<br>
+      • Advanced analytics<br>
+      • AI-powered content suggestions<br>
+      • Team collaboration features</p>
+      <img src="https://via.placeholder.com/600x300/22c55e/ffffff?text=Future+Updates" alt="Future Updates">
+    </div>
+  </div>
+  <a href="#" class="itabs-link-button">Request Demo</a>
+</div>
+<span class="word-with-itab" data-itab-id="itab-enhance">information enhancement<span class="itab-icon">i</span></span> is a universal need.</p>
+        
+        <h2>Looking Forward</h2>
+        <p>As we continue to develop iTabs, our focus remains on making it even easier to implement while adding new features that our users request. The goal is simple: to revolutionize how information is shared online, one popup at a time.</p>
+        
+        <p>iTabs represents more than just a technical innovation; it's a new way of thinking about content delivery in the digital age. By keeping visitors engaged while providing them the information they need, we're creating a better internet experience for everyone.</p>
     </div>
     
-    <script>
-        // Page tabs functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle regular page tabs
-            document.querySelectorAll('.tab-buttons .tab-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    // Only get buttons and panels that are siblings
-                    const tabContainer = button.closest('.tab-buttons').nextElementSibling;
-                    const allButtons = button.closest('.tab-buttons').querySelectorAll('.tab-button');
-                    const allPanels = tabContainer.querySelectorAll('.tab-panel');
-                    
-                    // Remove active class from all buttons and panels
-                    allButtons.forEach(b => b.classList.remove('active'));
-                    allPanels.forEach(p => p.classList.remove('active'));
-                    
-                    // Add active class to clicked button and corresponding panel
-                    button.classList.add('active');
-                    const tabId = button.getAttribute('data-tab');
-                    tabContainer.querySelector('#' + tabId).classList.add('active');
-                });
-            });
-            
-            // Handle iTabs popups
-            document.querySelectorAll('.itab-icon').forEach(icon => {
-                icon.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const parentSpan = this.closest('.word-with-itab');
-                    const itabId = parentSpan.getAttribute('data-itab-id');
-                    const itabElement = document.getElementById(itabId);
-                    
-                    if (itabElement) {
-                        // Hide all other iTabs popups
-                        document.querySelectorAll('.itab-container').forEach(container => {
-                            container.style.display = 'none';
-                        });
-                        
-                        // Position and show this iTabs popup
-                        const iconRect = this.getBoundingClientRect();
-                        itabElement.style.display = 'block';
-                        itabElement.style.top = (iconRect.bottom + window.scrollY + 5) + 'px';
-                        itabElement.style.left = Math.max(0, iconRect.left + window.scrollX - 180) + 'px';
-                    }
-                });
-            });
-            
-            // Close iTabs popup when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.word-with-itab') && !e.target.closest('.itab-container')) {
-                    document.querySelectorAll('.itab-container').forEach(container => {
-                        container.style.display = 'none';
-                    });
-                }
-            });
-        });
-    </script>
+    <div class="footer">
+        <p>Want to try iTabs for your website? Visit our creator tool to get started.</p>
+    </div>
 </body>
 </html>
