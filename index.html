@@ -127,5 +127,127 @@
     <div class="footer">
         <p>Want to try iTabs for your website? Visit our creator tool to get started.</p>
     </div>
+    <style>
+.itab-container {
+  font-family: -apple-system, system-ui, sans-serif;
+  max-width: 100%;
+  margin: 20px 0;
+  border: 2px solid #6366f1;
+  border-radius: 8px;
+  overflow: hidden;
+  display: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 400px;
+  z-index: 1000;
+}
+.tab-buttons {
+  display: flex;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+.tab-button {
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #64748b;
+}
+.tab-button.active {
+  color: #6366f1;
+  border-bottom: 3px solid #6366f1;
+  background: white;
+}
+.tab-panel {
+  display: none;
+  padding: 15px;
+}
+.tab-panel.active {
+  display: block;
+}
+.tab-panel img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+.word-with-itab {
+  position: relative;
+  display: inline;
+  color: inherit;
+}
+.itabs-link-button {
+  display: inline-block;
+  margin: 0 15px 15px;
+  padding: 8px 16px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.itab-icon {
+  width: 14px;
+  height: 14px;
+  background-color: #4338ca;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  color: white;
+  font-size: 10px;
+  vertical-align: super;
+  font-weight: bold;
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  .itab-container {
+    width: 90%;
+    left: 5% !important;
+    right: 5% !important;
+    max-width: none;
+  }
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const tabContainer = button.closest('.itab-container');
+      tabContainer.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      tabContainer.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      button.classList.add('active');
+      tabContainer.querySelector('#' + button.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.itab-icon').forEach(icon => {
+    icon.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const parentSpan = this.closest('.word-with-itab');
+      const itabId = parentSpan.getAttribute('data-itab-id');
+      const itabElement = document.getElementById(itabId);
+      if (itabElement) {
+        document.querySelectorAll('.itab-container').forEach(container => {
+          container.style.display = 'none';
+        });
+        const iconRect = this.getBoundingClientRect();
+        itabElement.style.display = 'block';
+        itabElement.style.top = (iconRect.bottom + window.scrollY + 5) + 'px';
+        itabElement.style.left = Math.max(0, iconRect.left + window.scrollX - 180) + 'px';
+      }
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.word-with-itab') && !e.target.closest('.itab-container')) {
+      document.querySelectorAll('.itab-container').forEach(container => {
+        container.style.display = 'none';
+      });
+    }
+  });
+});
+</script>
 </body>
 </html>
